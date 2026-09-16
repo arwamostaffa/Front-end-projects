@@ -41,21 +41,35 @@ body{
     border: 2px #fff dashed;
     cursor: pointer;
 }
-.filters ul{
+.filters ul , .filters ul li{
     display: flex;
     flex-direction: column;
-    gap:30px;
+    gap:25px;
+    direction: rtl;
 
 }
-.filters ul li{
-    display: flex;
-    flex-direction: column;
-    gap:20px;
 
-}
 .filters ul li label{
     color: #fff;
 }
-.filters{
-    background-color: aquamarine;
+/*3shan ageb a5er li*/
+.filters ul li:last-child{
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+.filters ul li a, span{
+    color: #fff;
+    padding: 10px 20px;
+    background: #060;
+
+
+}
+/*aksa width 650 px*/
+@media screen and (max-width:650px){
+    .container{
+        grid-template-columns: 1fr;
+        gap:50px;
+    }
+
 }
