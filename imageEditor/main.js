@@ -15,9 +15,13 @@ let img = document.getElementById("img");
 let reset = document.querySelector('span');
 let imgBox = document.querySelector('.img-box');
 
+const canvas= document.getElementById('canvas');
+const ctx=canvas.getContext('2d')
+
 
 function resetValue(){
-    img.style.filter='none';
+    //img.filter='none';
+    canvas.style.filter='none';
     saturate.value='100';
     contrast.value='100';
     brightness.value='100';
@@ -45,13 +49,20 @@ upload.onchange=function(){
     file.readAsDataURL(upload.files[0]);
     file.onload=function(){
         img.src=file.result;
+        
+    }
+    img.onload=function(){
+        canvas.width = img.width;
+        canvas.height= img.height;
+        ctx.drawImage(img,0,0,canvas.width,canvas.height);
+        img.style.display='none';
     }
     
 }
 let filters=document.querySelectorAll('ul li input');
 filters.forEach(filter=>{
     filter.addEventListener('input',function(){
-        img.style.filter=`
+        ctx.filter=`
         saturate(${saturate.value}%)
         contrast(${contrast.value}%)
         brightness(${brightness.value}%)
@@ -60,11 +71,13 @@ filters.forEach(filter=>{
         blur(${blur.value}px)
         hue-rotate(${huerotate.value}deg)
         `
+        ctx.drawImage(img,0,0,canvas.width,canvas.height);
 
     });
 });
 
 download.onclick=function(){
-    download.href= img.src;
+    download.href= canvas.toDataURL('image/jpeg');
+    // lw 3mlt canvas.toDataURL() el sora htnzl png by default
     
 }
