@@ -1,0 +1,66 @@
+*{
+    margin: 0;
+    padding:0;
+
+}
+body{
+    background: linear-gradient(#5a0035,#030027);
+    height:100vh;
+    font-family: system-ui;
+
+}
+a{
+    text-decoration: none;
+    color: #fff;
+
+}
+header{
+    position: absolute; /* 3shan elsora tkon 3lnav bar brdo*/
+    width:95%; /*3shan el nav bar mybozsh*/
+    z-index: 10; /*3shan el elements mtkonsh fo2 el nav */
+    display: flex;
+    justify-content: space-between; /*y3ml space between logo and items in 
+    nav bar*/
+    align-items: center; /*a5aly el logo t7t shwaya*/
+    margin: 30px;
+
+}
+header .logo{
+    font-size: 30px;
+    text-transform: uppercase;
+}
+header ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+header ul li{
+    /*to separete list element bet each others*/
+    margin-right: 30px;
+}
+header ul li a{
+    padding: 6px 15px;
+    border-radius: 20px;
+
+}
+header ul li a:hover,.active{
+    background: #fff;
+    color: #5a0035;
+}
+.main{
+    position: relative; /*el abna2 yt7arako 3la asaso*/
+    height: 100vh;
+    width: 100%;
+}
+.main img{
+    position: absolute;
+    width: 100%;
+    height:100vh;
+    object-fit: cover;
+}
+#moon{
+    mix-blend-mode: screen; /*screen mode fel photoshop*/
+
+}
+
